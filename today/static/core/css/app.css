@@ -1,0 +1,127 @@
+html{
+}
+body.loginbody{
+    background-color: #1ABC9C ;
+}
+.lgout{
+    margin-top: 14px;
+}
+.qstn{
+    font-size: 21px;
+    height: 62px;
+    margin-bottom: -17px;
+}
+.feeds{
+    padding: 6px 0px;
+
+    border-bottom: 1px solid #FAF5F5 ;
+}
+img.avtar{
+    position: relative;
+    top: 13px;
+    width: 85px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+}
+img.chat{
+    width: 45px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius:12px;
+    border-radius: 12px;
+}
+.feed .date{
+    font-size: 13px;
+    color:#ccc;
+    
+}
+.feed p{
+    font-size: 17px;
+    top:5px;
+    position: relative;
+}
+.right{
+    float: right;
+}
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5 ;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+}
+.container .btn-muted{
+    margin: 15px 0;
+}
+/* login */
+
+.container.logincontainer{
+    width: 650px!important;
+    padding-top: 165px;
+}
+.login-for{
+    background-color: #edeff1 ;
+    padding: 24px 23px 20px;
+    position: relative;
+    border-radius: 6px;
+}
+.demo-headline {
+    padding: 73px 0 110px;
+    text-align: center;
+    color: white;
+}
+
+/* new css */
+
+.navbar {
+    font-size: 16px;
+    min-height: 53px;
+    margin-bottom: -50px;
+    border: none;
+    border-radius: 6px;
+}
+
+
+.fix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* Set the fixed height of the header here */
+    //height: 290px;
+    z-index: 1000;
+    background-color: white;
+    clear: both;
+    display: block;
+}
+.cont{
+    position: relative;
+    top:290px;
+}
+
+.feed .hashtag{
+    color:#c0392b !important;
+    font-weight: bold;
+}
+.team_name{
+    color:#c0392b !important;
+}
+.action-area{
+    width: 1152px;
+    top:30px;
+    position: fixed;
+        z-index: 999;
+    background-color: white;
+}
+p.username{
+display: inline;
+position: relative;
+font-size: 10px;
+}
+.imagebox{
+    text-align: center;
+}

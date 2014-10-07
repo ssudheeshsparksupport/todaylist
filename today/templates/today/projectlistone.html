@@ -1,0 +1,36 @@
+{% extends "today/baseone.html" %}
+{% block content %}
+
+  <head>
+
+ {% if projects%}
+      
+     <table class="table">
+     <tr>
+     <th>Project</th>
+     </tr>
+      {% for project in projects %}
+      
+      <tr><td>{{ project.project_name }} <div class="col-sm-offset-3 col-sm-12"></div></td>
+       </tr>
+      {% endfor %}
+      {% else %}
+      {% endif %}
+      <br>
+    </table>
+     <button   class="btn btn-primary" id="save" onclick = 'clickit()'>Submit</button>
+
+ <script type="text/javascript">
+ function clickit(){
+  alert("success")
+  testdata = {}
+  $.get('/today/getconsole/',function(data){
+     console.log(data.data)
+     alert(data.data)
+   });
+}
+  
+</script>
+</head>
+
+{% endblock %}

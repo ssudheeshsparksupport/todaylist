@@ -1,0 +1,16 @@
+.box{
+	margin-top: 97px;
+}
+.color{
+	color: red;
+}
+.position{
+	position:absolute;
+	left:350px;
+	top:100px;
+	width:400px;
+	padding:10px; 
+	border:5px solid black;
+	margin:0px;
+	background-color:pink;
+}

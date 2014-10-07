@@ -1,0 +1,100 @@
+{% extends "today/baseone.html" %}
+{% block content %}
+
+
+
+  <form class="bs-example bs-example-form box color" role="form" action='/today/taskadd/' method="POST">{% csrf_token %}
+
+  	<div class="form-group col-sm-12">
+   <label for="inputQuestion" class="col-sm-2 control-label">Project</label>
+   <div class="col-sm-6">
+    <select class="form-control" name="projectid">
+    {% if project_list %}
+    {% for projects in project_list %}
+     <option value="{{projects.id}}">{{ projects.project_name }}</option>
+     {% endfor %}
+    {% endif %}
+   </select>
+   </div>
+ </div>
+
+ <div class="form-group col-sm-12">
+   <label for="inputQuestion" class="col-sm-2 control-label">Title </label>
+   <div class="col-sm-6">
+     <input type="text" name="title" class="form-control" id="inputQuestion" placeholder="title">
+   </div>
+ </div>
+ 
+ <div class="form-group">
+   <div class="col-sm-offset-4 col-sm-10" id="save">
+     <button type="submit" name="submit" class="btn btn-primary" id="save">Submit</button>
+
+   </div>
+ </div>
+</form>
+
+<form class="bs-example bs-example-form box color" role="form" action='/today/checkboxdeleting/' method="POST">{% csrf_token %}
+
+      {% if tasks%}
+      
+        <table class="table">
+          <tr>
+        <th>Tasks</th>
+        <th>Check</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        
+      </tr>
+      {% for task in tasks %}
+      
+      <tr><td>{{ task.title }} <div class="col-sm-offset-3 col-sm-12"></div></td><td><input type="checkbox" name="checkboxdel" value="{{ task.id}}"><div class="col-sm-offset-3 col-sm-12"></div></td> <td><a href= "/today/taskediting/{{ task.id }}/" class="btn btn-primary" id="save">Edit</a><div class="col-sm-offset-3 col-sm-12"></div></td><td> <a href= "/today/taskdeleting/{{ task.id }}/" class="btn btn-primary" id="delete">Delete</a><div class="col-sm-offset-3 col-sm-12"></div></td></tr>
+      {% endfor %}
+      {% else %}
+      {% endif %}
+      <br>
+    </table>
+      <div class="form-group"><hr>
+   <div class="col-sm-offset-3 col-sm-12" id="delete">
+     <button type="submit"  class="btn btn-primary" id="delete">Delete</button>
+   </div>
+ </div>
+
+ {% for contact in tasks %}
+    {# Each "contact" is a Contact model object. #}
+    {{ contact.full_name|upper }}<br />
+    
+{% endfor %}
+
+<div  align="right">
+    <span class="step-links">
+        {% if tasks.has_previous %}
+            <a href="?page={{ tasks.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ tasks.number }} of {{ tasks.paginator.num_pages }}.
+        </span>
+
+        {% if tasks.has_next %}
+            <a href="?page={{ tasks.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+</form>
+
+<button   class="btn btn-primary" id="save" onclick = 'clickit()'>Task List</button>
+
+ <script type="text/javascript">
+ function clickit(){
+  alert("success")
+  
+  $.get('/today/getconsoletasks/',function(data){
+     alert(data.data)
+     console.log(data.data)
+   });
+}
+  
+</script>
+</head>
+{% endblock %}
+

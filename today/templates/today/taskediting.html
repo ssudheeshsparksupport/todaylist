@@ -1,0 +1,28 @@
+{% extends "today/baseone.html" %}
+{% block content %}
+<head>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("button").click(function() {
+        alert("Task Editing Successfully");
+      });
+   });
+</script>
+</head>
+  <form class="bs-example bs-example-form box color" role="form" action='/today/taskediting/{{one.id}}/' method="POST">{% csrf_token %}
+
+ <div class="form-group col-sm-12">
+   <label for="inputQuestion" class="col-sm-2 control-label">Title</label>
+   <div class="col-sm-6">
+     <input type="text" name="title" class="form-control" id="inputQuestion" placeholder="title" value="{{one.title}}">
+   </div>
+ </div>
+ 
+ <div class="form-group">
+   <div class="col-sm-offset-4 col-sm-10">
+     <button type="submit"  class="btn btn-primary" id="save">Submit</button>
+
+   </div>
+ </div>
+</form>
+{% endblock %}

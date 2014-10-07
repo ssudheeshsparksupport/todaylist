@@ -1,0 +1,41 @@
+{% extends 'today/base.html' %}
+{% block content %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+     <head>
+      <h2 class="form-signin-heading">User Registration</h2>
+        <input type="text" class="user" name="username" placeholder="User name" required autofocus>
+       <input type="password" class="pass" name="password" placeholder="Password" required>
+       <label class="checkbox">
+         <input type="checkbox" value="remember-me"> Remember me
+       </label>
+       <button class="btn btn-lg btn-primary btn-block" onclick = 'clickit()' >Sign in</button>
+       <a class="login-link" href="#">Lost your password?</a>
+       <script type="text/javascript">
+
+function clickit(){
+   console.log('AAAAAAAAAA')
+   input = {
+                "title": $(".user").val(),
+                "title1": $(".pass").val(),
+                }
+  console.log(input)
+  var data = {
+  'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+  'data': JSON.stringify(input),
+
+
+  }
+    console.log(data)
+    $.post('/today/signin/', data, function(data)
+             { 
+              console.log(data)
+              window.location='/today/projectadd/'//redirecting to next page
+})
+}
+  </script>
+</head>
+     
+   <!-- /container -->
+ {% endblock %}

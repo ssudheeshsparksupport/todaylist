@@ -1,0 +1,29 @@
+{% extends "today/baseone.html" %}
+{% block content %}
+
+  <form class="bs-example bs-example-form box color" role="form" action='/today/projectlist/' method="POST">{% csrf_token %}
+
+ <div class="form-group col-sm-12">
+   <label for="inputQuestion" class="col-sm-2 control-label">Project </label>
+   <div class="col-sm-6">
+     <a href= "/today/projectadd/"  class="btn btn-primary" id="save">Add</a>
+   </div>
+ </div>
+ {% if detailsone%}
+      
+     <table class="table">
+     <tr>
+     <th>Project</th>
+     <th>Tasks</th>
+     </tr>
+      {% for detailon in detailsone %}
+      
+      <tr><td>{{ detailon.project_name }} <div class="col-sm-offset-3 col-sm-12"></div></td>
+      	<td>{{detailon.Task}}</td><td><button><a href= "/today/projectdeleting/{{ detailon.id }}/" class="btn btn-primary" id="delete">Delete</a><div class="col-sm-offset-3 col-sm-12"></div></button></td> </tr>
+      {% endfor %}
+      {% else %}
+      {% endif %}
+      <br>
+    </table>
+    {% endblock %}
+ 
